@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: stg_compte
+    description: "referenciels des comptes comptables et libelles utiliseé "
+    columns:
+      - name: code_compte
+        description: "Code du compte "
+        tests:
+          - unique
+          - not_null
+      - name: libelle_compte
+        description: "libelle des comptes"
+        tests:
+          - not_null
+      - name: famille
+        description: "Famille relié au cout presenté "
+        tests:
+          - not_null
+
+
+
+
+
+

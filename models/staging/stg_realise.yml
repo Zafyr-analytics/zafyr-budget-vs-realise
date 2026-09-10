@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: stg_realise
+    description: "Cout annuel de la Menuiserie Aubrac SAS "
+    tests:
+     -  dbt_utils.unique_combination_of_columns:
+           combination_of_columns:
+               - mois
+               - code_compte
+               - centre_cout
+    columns:
+      - name: mois
+        description: "Date eregistré du cout realisé "
+        tests:
+          - not_null
+      - name: code_compte
+        description: "Code du compte de la transaction realisé "
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 600000
+              max_value: 699999
+          - relationships:
+              to: ref('stg_compte')
+              field: code_compte
+      - name: centre_cout
+        description: "Secteur d'activité conceré par le cout realisé "
+        tests:
+        - not_null
+      - name: montant_reel
+        description: "Montant de la transaction realisé"
+        tests:
+          - not_null
+
+
+
+
+
+

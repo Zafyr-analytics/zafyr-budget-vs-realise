@@ -1,0 +1,10 @@
+code_compte,libelle_compte,famille
+601000,Achats matieres premieres,Achats
+602000,Achats consommables,Achats
+606100,Energie,Charges externes
+611000,Sous-traitance,Charges externes
+613000,Locations,Charges externes
+615000,Entretien maintenance,Charges externes
+621000,Personnel interimaire,Personnel
+641000,Salaires,Personnel
+645000,Charges sociales,Personnel

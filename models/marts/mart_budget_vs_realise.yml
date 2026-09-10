@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: mart_budget_vs_realise
+    description: "Ce modèle compare le budget prévu avec les charges réelles pour chaque centre de coût et chaque compte budgétaire."
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - mois
+            - code_compte
+            - centre_cout
+    columns:
+      - name: mois
+        description: "Le mois de la période budgétaire."
+        tests:
+          - not_null
+      - name: code_compte
+        description: "Le code du compte budgétaire."
+        tests:
+          - not_null
+      - name: centre_cout
+        description: "Le centre de coût associé au budget."
+        tests:
+          - not_null
+      - name: ecart
+        description: "Différence entre charges réelles et budget (réel - budget). Positif = dépassement du budget, négatif = inférieur au budget."
+      - name: ecart_pct
+        description: "Le pourcentage de l'écart par rapport au budget prévu, NULL quand le budget est nul (division impossible, pas de base de comparaison)."
+      - name: montant_budget
+        description: "Le montant budgété pour le centre de coût et le compte budgétaire."
+      - name: montant_reel
+        description: "Le montant réel dépensé pour le centre de coût et le compte budgétaire."
+      - name: libelle_compte
+        description: "Le libellé du compte budgétaire."
+      - name: famille
+        description: "La famille du compte budgétaire."
+
+
