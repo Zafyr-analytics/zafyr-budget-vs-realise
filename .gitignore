@@ -1,2 +1,8 @@
 portfolio/
 audit-fec-toolkit/
+
+target/
+dbt_packages/
+logs/
+*.duckdb
+*.duckdb.wal
